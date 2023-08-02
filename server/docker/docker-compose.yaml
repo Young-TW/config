@@ -1,0 +1,89 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./data:/data
+    restart: unless-stopped
+
+  synpase:
+    image: matrixdotorg/synapse:latest
+    ports:
+      - "8008:8008"
+      - "8448:8448"
+    volumes:
+      - ./data:/data
+
+  nextcloud:
+    image: linuxserver/nextcloud:latest
+    ports:
+      - "127.0.0.1:12345:443"
+    volumes:
+      - /home/young/nextcloud/appdata:/config
+      - /home/young/nextcloud/data:/data
+    restart: unless-stopped
+
+  gitlab:
+    image: bitnami/gitlab-runner:latest
+    ports:
+      - "127.0.0.1:12346:80"
+    volumes:
+      - /home/young/gitlab/config:/etc/gitlab
+      - /home/young/gitlab/logs:/var/log/gitlab
+      - /home/young/gitlab/data:/var/opt/gitlab
+    restart: unless-stopped
+
+  mariadb:
+    image: linuxserver/mariadb:latest
+    container_name: codimd_mariadb
+    restart: always
+    volumes:
+      - <path to mariadb data>:/config
+    environment:
+      - MYSQL_ROOT_PASSWORD=<secret password>
+      - MYSQL_DATABASE=codimd
+      - MYSQL_USER=codimd
+      - MYSQL_PASSWORD=<secret password>
+      - PGID=1000
+      - PUID=1000
+      - TZ=Etc/UTC+8
+  codimd:
+    image: linuxserver/codimd:latest
+    container_name: codimd
+    restart: always
+    depends_on:
+      - mariadb
+    volumes:
+      - <path to config>:/config
+    environment:
+      - DB_HOST=mariadb
+      - DB_USER=codimd
+      - DB_PASS=<secret password>
+      - DB_NAME=codimd
+      - DB_PORT=3306
+      - PGID=1000
+      - PUID=1000
+      - TZ=Etc/UTC+8
+    ports:
+      - "127.0.0.1:12347:3000"
+
+  openvscode-server:
+    image: lscr.io/linuxserver/openvscode-server:latest
+    container_name: openvscode-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC+8
+      - CONNECTION_TOKEN= #optional
+      - CONNECTION_SECRET= #optional
+      - SUDO_PASSWORD=password #optional
+      - SUDO_PASSWORD_HASH= #optional
+    volumes:
+      - /path/to/appdata/config:/config
+    ports:
+      - "127.0.0.1:12348:3000"
+    restart: unless-stopped
