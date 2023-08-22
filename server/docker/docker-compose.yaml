@@ -1,13 +1,25 @@
 version: '3'
 services:
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./data:/data
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #     - ./data:/data
+  #   restart: unless-stopped
+
+  blog:
+    container_name: blog
+    image: youngtw/blog:latest
+    ports: 127.0.0.1:12347:80
+    restart: unless-stopped
+
+  link:
+    container_name: link
+    image: youngtw/link:latest
+    ports: 127.0.0.1:12348:80
     restart: unless-stopped
 
   # synpase:
@@ -23,8 +35,8 @@ services:
     ports:
       - "127.0.0.1:12345:443"
     volumes:
-      - /home/young/nextcloud/appdata:/config
-      - /home/young/nextcloud/data:/data
+      - /mnt/sdb/nextcloud/appdata:/config
+      - /mnt/sdb/nextcloud/data:/data
     restart: unless-stopped
 
   # gitlab:
