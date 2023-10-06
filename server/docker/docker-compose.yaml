@@ -2,14 +2,14 @@ version: '3'
 services:
   blog:
     container_name: blog
-    image: youngtw/blog:1.0.1
+    image: youngtw/blog:latest
     ports:
       - "127.0.0.1:12347:80"
     restart: unless-stopped
 
   link:
     container_name: link
-    image: youngtw/link:1.0.2
+    image: youngtw/link:latest
     ports:
       - "127.0.0.1:12348:3000"
     restart: unless-stopped
@@ -32,7 +32,7 @@ services:
     restart: unless-stopped
 
   mc-website:
-    image: youngtw/mc-website:1.0.2
+    image: youngtw/mc-website:latest
     ports:
       - "127.0.0.1:12349:3000"
     restart: unless-stopped
@@ -66,13 +66,3 @@ services:
 
   # wireguard:
   #   image: linuxserver/wireguard
-
-#   CONTAINER ID   IMAGE                         COMMAND                  CREATED        STATUS                  PORTS                                                             NAMES
-# b0c7805f18a1   gitlab/gitlab-ce              "/assets/wrapper"        14 hours ago   Up 14 hours (healthy)   22/tcp, 443/tcp, 127.0.0.1:12351->80/tcp                          gitlab
-# 19e42b5ef677   matrixdotorg/synapse:latest   "/start.py"              4 days ago     Up 4 days (healthy)     8009/tcp, 8448/tcp, 0.0.0.0:12346->8008/tcp, :::12346->8008/tcp   synapse
-# 0e75c31874e5   link                          "docker-entrypoint.s…"   4 days ago     Up 4 hours              127.0.0.1:12350->3000/tcp                                         youngtw_net
-# a519bc864138   link                          "docker-entrypoint.s…"   5 days ago     Up 5 days               127.0.0.1:12348->3000/tcp                                         link
-# e7e9ea8e2ccc   youngtw/mc-website:1.0.2      "docker-entrypoint.s…"   5 days ago     Up 5 days               127.0.0.1:12349->3000/tcp                                         mc-website
-# f7f9cea85f96   postgres                      "docker-entrypoint.s…"   8 days ago     Up 4 days               5432/tcp                                                          sql
-# de24c6dae82e   youngtw/blog:1.0.1            "/docker-entrypoint.…"   2 weeks ago    Up 5 days               443/tcp, 127.0.0.1:12347->80/tcp                                  blog
-# fc1547ad69a4   linuxserver/nextcloud         "/init"                  4 weeks ago    Up 9 days               80/tcp, 127.0.0.1:12345->443/tcp                                  nextcloud
