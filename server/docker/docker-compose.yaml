@@ -37,6 +37,24 @@ services:
       - "127.0.0.1:12349:3000"
     restart: unless-stopped
 
+  # yourls:
+  #   image: yourls
+  #   restart: always
+  #   ports:
+  #     - 8080:80
+  #   environment:
+  #     YOURLS_DB_PASS: example
+  #     YOURLS_SITE: https://url.young-tw.com
+  #     YOURLS_USER: example_username
+  #     YOURLS_PASS: example_password
+
+  # mysql:
+  #   image: mysql
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: example
+  #    MYSQL_DATABASE: yourls
+
   # gitlab:
   #   image: bitnami/gitlab-runner:latest
   #   ports:
