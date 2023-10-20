@@ -1,4 +1,4 @@
-version: '3'
+version: '3.6'
 services:
   blog:
     container_name: blog
@@ -14,13 +14,68 @@ services:
       - "127.0.0.1:12348:3000"
     restart: unless-stopped
 
-  # synpase:
-  #   image: matrixdotorg/synapse:latest
-  #   ports:
-  #     - "8008:8008"
-  #     - "8448:8448"
-  #   volumes:
-  #     - ./data:/data
+  synapse:
+    container_name: synapse
+    hostname: ${MATRIX_HOSTNAME}
+    build:
+        context: ../..
+        dockerfile: docker/Dockerfile
+    image: docker.io/matrixdotorg/synapse:latest
+    restart: unless-stopped
+    environment:
+      - SYNAPSE_SERVER_NAME=${MATRIX_HOSTNAME}
+      - SYNAPSE_REPORT_STATS=yes
+      - SYNAPSE_NO_TLS=1
+      #- SYNAPSE_ENABLE_REGISTRATION=no
+      #- SYNAPSE_CONFIG_PATH=/config
+      # - SYNAPSE_LOG_LEVEL=DEBUG
+      - SYNAPSE_REGISTRATION_SHARED_SECRET=${REG_SHARED_SECRET}
+      - POSTGRES_DB=synapse
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - synapse-data:/data
+    depends_on:
+      - db
+    # In order to expose Synapse, remove one of the following, you might for
+    # instance expose the TLS port directly:
+    # ports:
+    #   - 8448:8448/tcp
+    networks:
+      - web
+      - backend
+
+  db:
+    container_name: postgres
+    image: docker.io/postgres:10-alpine
+    environment:
+      - POSTGRES_DB=synapse
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - /var/lib/postgresql/data
+    networks:
+      - backend
+    labels:
+      - "traefik.enable=false"
+
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'gitlab.young-tw.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.young-tw.com'
+        # Add any other gitlab.rb configuration here, each on its own linea
+    ports:
+      - '12601:80'
+      - '12603:22'
+    volumes:
+      - '/mnt/sdb/gitlab/config:/etc/gitlab'
+      - '/mnt/sdb/gitlab/logs:/var/log/gitlab'
+      - '/mnt/sdb/data:/var/opt/gitlab'
+    shm_size: '256m'
 
   nextcloud:
     image: linuxserver/nextcloud
