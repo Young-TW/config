@@ -14,6 +14,21 @@ services:
       - "127.0.0.1:12348:3000"
     restart: unless-stopped
 
+  nextcloud:
+    image: linuxserver/nextcloud
+    ports:
+      - "127.0.0.1:12345:443"
+    volumes:
+      - /mnt/sdb/nextcloud/appdata:/config
+      - /mnt/sdb/nextcloud/data:/data
+    restart: unless-stopped
+
+  mc-website:
+    image: youngtw/mc-website:latest
+    ports:
+      - "127.0.0.1:12349:3000"
+    restart: unless-stopped
+
   synapse:
     container_name: synapse
     hostname: ${MATRIX_HOSTNAME}
@@ -76,21 +91,6 @@ services:
       - '/mnt/sdb/gitlab/logs:/var/log/gitlab'
       - '/mnt/sdb/data:/var/opt/gitlab'
     shm_size: '256m'
-
-  nextcloud:
-    image: linuxserver/nextcloud
-    ports:
-      - "127.0.0.1:12345:443"
-    volumes:
-      - /mnt/sdb/nextcloud/appdata:/config
-      - /mnt/sdb/nextcloud/data:/data
-    restart: unless-stopped
-
-  mc-website:
-    image: youngtw/mc-website:latest
-    ports:
-      - "127.0.0.1:12349:3000"
-    restart: unless-stopped
 
   # yourls:
   #   image: yourls
