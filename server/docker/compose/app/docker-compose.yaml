@@ -1,0 +1,108 @@
+version: '3.6'
+services:
+  nextcloud:
+    image: linuxserver/nextcloud
+    ports:
+      - "127.0.0.1:12345:443"
+    volumes:
+      - /mnt/sdb/nextcloud/appdata:/config
+      - /mnt/sdb/nextcloud/data:/data
+    restart: unless-stopped
+
+  synapse:
+    container_name: synapse
+    hostname: ${MATRIX_HOSTNAME}
+    build:
+        context: ../..
+        dockerfile: docker/Dockerfile
+    image: docker.io/matrixdotorg/synapse:latest
+    restart: unless-stopped
+    environment:
+      - SYNAPSE_SERVER_NAME=${MATRIX_HOSTNAME}
+      - SYNAPSE_REPORT_STATS=yes
+      - SYNAPSE_NO_TLS=1
+      #- SYNAPSE_ENABLE_REGISTRATION=no
+      #- SYNAPSE_CONFIG_PATH=/config
+      # - SYNAPSE_LOG_LEVEL=DEBUG
+      - SYNAPSE_REGISTRATION_SHARED_SECRET=${REG_SHARED_SECRET}
+      - POSTGRES_DB=synapse
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - synapse-data:/data
+    depends_on:
+      - db
+    # In order to expose Synapse, remove one of the following, you might for
+    # instance expose the TLS port directly:
+    # ports:
+    #   - 8448:8448/tcp
+    networks:
+      - web
+      - backend
+
+  joplin:
+    image: joplin/server:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:22300:22300"
+    volumes:
+      - /mnt/sdb/joplin:/data
+
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'gitlab.young-tw.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.young-tw.com'
+        # Add any other gitlab.rb configuration here, each on its own linea
+    ports:
+      - '12601:80'
+      - '12603:22'
+    volumes:
+      - '/mnt/sdb/gitlab/config:/etc/gitlab'
+      - '/mnt/sdb/gitlab/logs:/var/log/gitlab'
+      - '/mnt/sdb/data:/var/opt/gitlab'
+    shm_size: '256m'
+
+  # yourls:
+  #   image: yourls
+  #   restart: always
+  #   ports:
+  #     - 8080:80
+  #   environment:
+  #     YOURLS_DB_PASS: example
+  #     YOURLS_SITE: https://url.young-tw.com
+  #     YOURLS_USER: example_username
+  #     YOURLS_PASS: example_password
+
+  # gitlab:
+  #   image: bitnami/gitlab-runner:latest
+  #   ports:
+  #     - "127.0.0.1:12346:80"
+  #   volumes:
+  #     - /home/young/gitlab/config:/etc/gitlab
+  #     - /home/young/gitlab/logs:/var/log/gitlab
+  #     - /home/young/gitlab/data:/var/opt/gitlab
+  #   restart: unless-stopped
+
+  # openvscode-server:
+  #   image: lscr.io/linuxserver/openvscode-server:latest
+  #   container_name: openvscode-server
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Etc/UTC+8
+  #     - CONNECTION_TOKEN= #optional
+  #     - CONNECTION_SECRET= #optional
+  #     - SUDO_PASSWORD=password #optional
+  #     - SUDO_PASSWORD_HASH= #optional
+  #   volumes:
+  #     - /path/to/appdata/config:/config
+  #   ports:
+  #     - "127.0.0.1:12348:3000"
+  #   restart: unless-stopped
+
+  # wireguard:
+  #   image: linuxserver/wireguard

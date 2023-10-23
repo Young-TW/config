@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  blog:
+    container_name: blog
+    image: youngtw/blog:latest
+    ports:
+      - "127.0.0.1:12347:80"
+    restart: unless-stopped
+
+  link:
+    container_name: link
+    image: youngtw/link:latest
+    ports:
+      - "127.0.0.1:12348:3000"
+    restart: unless-stopped
+
+  mc-website:
+    image: youngtw/mc-website:latest
+    ports:
+      - "127.0.0.1:12349:3000"
+    restart: unless-stopped
