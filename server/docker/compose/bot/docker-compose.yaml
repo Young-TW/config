@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  young-bot:
+    image: 
+    volumes:
+      - ./young-bot:/app
+    restart: unless-stopped
+
+  young-studio:
+    image: 
+    volumes:
+      - ./young-studio:/app
+    restart: unless-stopped
