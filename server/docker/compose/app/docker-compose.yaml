@@ -35,11 +35,8 @@ services:
       - db
     # In order to expose Synapse, remove one of the following, you might for
     # instance expose the TLS port directly:
-    # ports:
-    #   - 8448:8448/tcp
-    networks:
-      - web
-      - backend
+    ports:
+      - 127.0.0.1:8448:8448/tcp
 
   joplin:
     image: joplin/server:latest
@@ -55,7 +52,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DATABASE=${POSTGRES_DATABASE}
       - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_PORT=8448
       - POSTGRES_HOST=db
     volumes:
       - /mnt/sdb/joplin:/data
@@ -69,8 +66,8 @@ services:
         external_url 'https://gitlab.young-tw.com'
         # Add any other gitlab.rb configuration here, each on its own linea
     ports:
-      - '12601:80'
-      - '12603:22'
+      - '12351:80'
+      - '12352:22'
     volumes:
       - '/mnt/sdb/gitlab/config:/etc/gitlab'
       - '/mnt/sdb/gitlab/logs:/var/log/gitlab'

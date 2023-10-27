@@ -9,14 +9,5 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - /var/lib/postgresql/data
-    networks:
-      - backend
     labels:
       - "traefik.enable=false"
-
-  # mysql:
-  #   image: mysql
-  #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: example
-  #    MYSQL_DATABASE: yourls
