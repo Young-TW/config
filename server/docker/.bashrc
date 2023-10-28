@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export POSTGRES_USER=postgres
 export POSTGRES_PASSWORD=randompw
 export POSTGRES_DATABASE=postgres
