@@ -1,13 +1,13 @@
 version: '3.6'
 services:
   young-bot:
-    image: 
+    image: youngtw/dcbot:latest
     volumes:
       - ./young-bot:/app
     restart: unless-stopped
 
   young-studio:
-    image: 
+    image: youngtw/dcbot-studio:latest
     volumes:
       - ./young-studio:/app
     restart: unless-stopped
