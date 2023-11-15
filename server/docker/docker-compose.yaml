@@ -92,6 +92,11 @@ services:
       - '/mnt/sdb/data:/var/opt/gitlab'
     shm_size: '256m'
 
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
   # yourls:
   #   image: yourls
   #   restart: always
