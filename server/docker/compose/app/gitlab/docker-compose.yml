@@ -1,0 +1,30 @@
+version: '3.6'
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'gitlab.young-tw.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.young-tw.com'
+        # Add any other gitlab.rb configuration here, each on its own linea
+    ports:
+      - '12351:80'
+      - '12352:22'
+    volumes:
+      - '/mnt/sdb/gitlab/config:/etc/gitlab'
+      - '/mnt/sdb/gitlab/logs:/var/log/gitlab'
+      - '/mnt/sdb/data:/var/opt/gitlab'
+    shm_size: '256m'
+
+  db:
+    container_name: postgres
+    image: docker.io/postgres:10-alpine
+    environment:
+      - POSTGRES_DB=synapse
+      - POSTGRES_USER=young
+      - POSTGRES_PASSWORD=afjeirkjl421
+    volumes:
+      - /var/lib/postgresql/data
+    labels:
+      - "traefik.enable=false"

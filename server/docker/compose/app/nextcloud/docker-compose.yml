@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  nextcloud:
+    image: linuxserver/nextcloud
+    ports:
+      - "127.0.0.1:12345:443"
+    volumes:
+      - /mnt/sdb/nextcloud/appdata:/config
+      - /mnt/sdb/nextcloud/data:/data
+    restart: unless-stopped

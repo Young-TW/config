@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  yourls:
+    image: yourls
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      YOURLS_DB_PASS: example
+      YOURLS_SITE: https://url.young-tw.com
+      YOURLS_USER: example_username
+      YOURLS_PASS: example_password
