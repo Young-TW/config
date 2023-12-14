@@ -102,7 +102,3 @@ my domain: young-tw.com, youngtw.net
 | gitlab/gitlab-ce               | 127.0.0.1:12351->80/tcp                                         | gitlab      |                                                    | postgres            | gitlab.young-tw.com |
 | linuxserver/openvscode-serveer | 127.0.0.1:12352->8443/tcp                                       | vscode      |                                                    |                     | code.young-tw.com   |
 | joplin/server                  | 127.0.0.1:12353->22300/tcp                                      | joplin      |                                                    |                     | joplin.young-tw.com |
-
----
-
-{%hackmd @lumynou5/dark-theme %}
