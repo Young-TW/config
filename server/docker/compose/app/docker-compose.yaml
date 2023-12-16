@@ -4,6 +4,7 @@ x-include:
   - './joplin/docker-compose.yml'
   - './matrix/docker-compose.yml'
   - './nextcloud/docker-compose.yml'
+  - './portainer/docker-compose.yml'
   - './vscode/docker-compose.yml'
   - './watchtower/docker-compose.yml'
   - './wireguard/docker-compose.yml'
