@@ -44,6 +44,7 @@ my domain: young-tw.com, youngtw.net
 - [ ] [gitlab](https://gitlab.young-tw.com)
 - [ ] [mastodon](https://social.young-tw.com)
 - [x] [nextcloud](https://cloud.young-tw.com)
+- [x] [portainer](https://admin.young-tw.com)
 - [x] [uptime kuma(by young)](https://status.youngtw.net)
 - [x] [uptime kuma(by yuan)](https://status.young-tw.com)
 
@@ -102,3 +103,4 @@ my domain: young-tw.com, youngtw.net
 | gitlab/gitlab-ce               | 127.0.0.1:12351->80/tcp                                         | gitlab      |                                                    | postgres            | gitlab.young-tw.com |
 | linuxserver/openvscode-serveer | 127.0.0.1:12352->8443/tcp                                       | vscode      |                                                    |                     | code.young-tw.com   |
 | joplin/server                  | 127.0.0.1:12353->22300/tcp                                      | joplin      |                                                    |                     | joplin.young-tw.com |
+| portainer/portainer-ce         | 0.0.0.0:8000->8000/tcp, :::12359->9000/tcp                      | portainer   |                                                    |                     | admin.young-tw.com  |
