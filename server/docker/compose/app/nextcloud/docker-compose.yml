@@ -1,10 +1,28 @@
 version: '3.6'
 services:
   nextcloud:
-    image: linuxserver/nextcloud
+    image: nextcloud
     ports:
-      - "127.0.0.1:12345:443"
+      - "127.0.0.1:12345:80"
+    environment:
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=snb395sbq
+      - MYSQL_HOST=db
     volumes:
-      - /mnt/sdb/nextcloud/appdata:/config
-      - /mnt/sdb/nextcloud/data:/data
+      - nextcloud_data:/var/www/html
     restart: unless-stopped
+
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_ROOT_PASSWORD=sntb395sbq
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=snb395sbq
+    volumes:
+      - /mnt/sdb/nextcloud/db:/var/lib/mysql
+
+volumes:
+  nextcloud_data:
+  db_data:
