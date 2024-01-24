@@ -1,4 +1,18 @@
 version: '3.6'
 services:
   wireguard:
-    image: linuxserver/wireguard
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC+8
+    volumes:
+      - /mnt/sdb/wireguard/config:/config
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
