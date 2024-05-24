@@ -1,18 +1,4 @@
-for i in "git" "cmake" "clang" "python3" "java" "wget" "vim" "docker" "docker.io"
-  eval "apt install $i"
-end
-
-# create directories
-
-cd ~
-
-for i in "Code" "Document" "Koel" "Mindustry" "Minecraft" "Music" "Picture" "Software" "Video"
-  eval "mkdir $i"
-end
-
-## install cmake-init
-
-fish ../software/cmake-init.sh
+#!/bin/fish
 
 ## Minecraft setting
 
