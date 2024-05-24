@@ -11,11 +11,11 @@ bash ./config/git/user.sh
 
 # install paru
 
-
+bash ./config/paru/paru.sh
 
 # fish setting
 
-fish ./fish/fisher.fish
+fish
 
 # install cmake-init
 
