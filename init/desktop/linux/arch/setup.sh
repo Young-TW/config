@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd ~ || exit
 mkdir Code Desktop Document Music Picture Software Video
