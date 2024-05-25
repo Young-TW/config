@@ -16,6 +16,10 @@ else
     exit 1
 fi
 
+# change default shell
+
+chsh -s "$(command -v fish)"
+
 # install fisher and plugins
 
 fish ../fish/fisher.fish

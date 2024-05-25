@@ -11,11 +11,6 @@ mkdir Software
 
 fish ./fish/brew_packages.fish
 
-# git setting
-
-git config --global user.name "young"
-git config --global user.email young20050727@gmail.com
-
 # fish setting
 
 fish ./fish/fisher.fish
