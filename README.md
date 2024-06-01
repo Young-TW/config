@@ -11,31 +11,7 @@ tags: Server
 
 my domain: young-tw.com, youngtw.net
 
-## games
-
-- [x] Minecraft PaperMC server
-    - ver: 1.20.1
-    - port: 25565
-    - [ ] whitelist
-    - plugins
-        - [x] DiscordSRV
-        - [ ] AntiCheat
-        - [ ] Geyser
-- [x] Mindustry server
-    - ver: 143.1
-    - port: 6567
-
-## bots
-
-- Discord Bot
-    - [x] Young Bot
-    - [x] Young Studio
-
 ## websites and applications
-
-### requirments
-
-- [ ] postgresql
 
 ### application
 
@@ -44,7 +20,7 @@ my domain: young-tw.com, youngtw.net
 - [ ] [gitlab](https://gitlab.young-tw.com)
 - [ ] [mastodon](https://social.young-tw.com)
 - [x] [dockge](https://dockge.young-tw.com)
-- [x] [nextcloud](https://cloud.young-tw.com)
+- [ ] [nextcloud](https://cloud.young-tw.com)
 - [x] [portainer](https://admin.young-tw.com)
 - [x] [uptime kuma(by young)](https://status.youngtw.net)
 - [x] [uptime kuma(by yuan)](https://status.young-tw.com)
@@ -54,14 +30,6 @@ my domain: young-tw.com, youngtw.net
 - [x] [blog](https://blog.young-tw.com)
 - [x] [link](https://youngtw.net)
 - [x] [mc-website](https://mc.young-tw.com)
-
-## tools
-
-- [x] ssh
-
-## wake on lan
-
-- [ ] http://www.gienginali.idv.tw/modules/tad_book3/page.php?tbsn=5&tbdsn=199
 
 ## Docker images
 
@@ -73,7 +41,7 @@ my domain: young-tw.com, youngtw.net
 - [ ] [rclone/rclone](https://hub.docker.com/r/rclone/rclone)
 - [ ] [linuxserver/codimd](https://hub.docker.com/r/linuxserver/codimd)
 - [ ] [linuxserver/openvscode-server](https://hub.docker.com/r/linuxserver/openvscode-server)
-- [x] [linuxserver/nextcloud](https://hub.docker.com/r/linuxserver/nextcloud)
+- [ ] [linuxserver/nextcloud](https://hub.docker.com/r/linuxserver/nextcloud)
 - [ ] [linuxserver/mastodon](https://hub.docker.com/r/linuxserver/mastodon)
 - [ ] [linuxserver/docker-wireguard](https://github.com/linuxserver/docker-wireguard)
 - [ ] [phanan/koel](https://hub.docker.com/r/phanan/koel)
