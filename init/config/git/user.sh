@@ -2,10 +2,9 @@
 
 # check if git is installed
 
-if ! command -v git &> /dev/null
-then
-    echo "git could not be found"
-    exit
+if ! command -v git &>/dev/null; then
+	echo "git could not be found"
+	exit
 fi
 
 # git setting
