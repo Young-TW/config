@@ -20,6 +20,7 @@ my domain: young-tw.com, youngtw.net
 - [ ] [gitlab](https://gitlab.young-tw.com)
 - [ ] [mastodon](https://social.young-tw.com)
 - [ ] [nextcloud](https://cloud.young-tw.com)
+- [x] [jellyfin](https://jellyfin.young-tw.com)
 - [ ] [uptime kuma(by young)](https://status.youngtw.net)
 - [x] [uptime kuma(by yuan)](https://status.young-tw.com)
 
@@ -37,7 +38,6 @@ my domain: young-tw.com, youngtw.net
 
 - [ ] [rclone/rclone](https://hub.docker.com/r/rclone/rclone)
 - [ ] [linuxserver/mastodon](https://hub.docker.com/r/linuxserver/mastodon)
-- [ ] [phanan/koel](https://hub.docker.com/r/phanan/koel)
 - [ ] [louislam/uptime-kuma](https://hub.docker.com/r/louislam/uptime-kuma)
 - [ ] [wernight/mopidy](https://hub.docker.com/r/wernight/mopidy)
 - [ ] [nextcloud](https://hub.docker.com/_/nextcloud)
