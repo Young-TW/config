@@ -5,7 +5,7 @@
 # load functions
 source ~/.config/fish/function.fish
 
-install_package openjdk-17-jre
+install_package openjdk-21-jre-headless
 
 change_dir ~/Minecraft
 mkdir -p spigot
