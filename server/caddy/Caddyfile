@@ -1,12 +1,13 @@
+{
+    email me@youngtw.net
+}
+
 # youngtw.net
 youngtw.net {
     reverse_proxy 192.168.0.135:12348
-    tls {
-        on_demand
-    }
 }
 
-# young-tw.com
+# young-tw.com → 永久轉址到主網域
 young-tw.com {
     redir https://youngtw.net{uri} permanent
 }
@@ -14,19 +15,14 @@ young-tw.com {
 # blog.young-tw.com
 blog.young-tw.com {
     reverse_proxy 192.168.0.135:12347
-    tls {
-        on_demand
-    }
 }
 
 # mc.young-tw.com
 mc.young-tw.com {
     reverse_proxy 192.168.0.135:12349
-    tls {
-        on_demand
-    }
 }
 
+# 各種簡易轉址
 matrix.youngtw.net {
     redir https://matrix.to/#/@-young-:matrix.org{uri}
 }
