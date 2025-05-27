@@ -26,3 +26,14 @@ function install_package
         exit 1
     end
 end
+
+function git-pull-all
+    for dir in ./*/
+        if test -d $dir.git
+            echo ">>> Updating repo: $dir"
+            pushd $dir > /dev/null
+            git pull
+            popd > /dev/null
+        end
+    end
+end
