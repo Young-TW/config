@@ -9,5 +9,5 @@ fi
 
 # git setting
 
-git config --global user.name "young"
+git config --global user.name "Young"
 git config --global user.email "young20050727@gmail.com"
