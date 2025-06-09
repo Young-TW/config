@@ -1,0 +1,4 @@
+youn.gg {
+    tls young20050727@gmail.com
+    reverse_proxy 192.168.0.135:12348
+}

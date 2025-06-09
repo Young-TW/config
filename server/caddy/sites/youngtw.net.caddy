@@ -1,0 +1,27 @@
+
+# youngtw.net
+youngtw.net {
+    reverse_proxy 192.168.0.135:12348
+}
+
+
+# 各種簡易轉址
+matrix.youngtw.net {
+    redir https://matrix.to/#/@-young-:matrix.org{uri}
+}
+
+github.youngtw.net {
+    redir https://github.com/Young-TW{uri}
+}
+
+mastodon.youngtw.net {
+    redir https://mastodon.social/@young_tw{uri}
+}
+
+g0v.youngtw.net {
+    redir https://g0v.social/@young{uri}
+}
+
+telegram.youngtw.net {
+    redir https://t.me/young_tw{uri}
+}

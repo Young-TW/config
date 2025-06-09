@@ -1,0 +1,15 @@
+
+# young-tw.com → 永久轉址到主網域
+young-tw.com {
+    redir https://youngtw.net{uri} permanent
+}
+
+# blog.young-tw.com
+blog.young-tw.com {
+    reverse_proxy 192.168.0.135:12347
+}
+
+# mc.young-tw.com
+mc.young-tw.com {
+    reverse_proxy 192.168.0.135:12349
+}

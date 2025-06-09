@@ -1,44 +1,5 @@
 {
-    email me@youngtw.net
+    email me@youn.gg
 }
 
-# youngtw.net
-youngtw.net {
-    reverse_proxy 192.168.0.135:12348
-}
-
-# young-tw.com → 永久轉址到主網域
-young-tw.com {
-    redir https://youngtw.net{uri} permanent
-}
-
-# blog.young-tw.com
-blog.young-tw.com {
-    reverse_proxy 192.168.0.135:12347
-}
-
-# mc.young-tw.com
-mc.young-tw.com {
-    reverse_proxy 192.168.0.135:12349
-}
-
-# 各種簡易轉址
-matrix.youngtw.net {
-    redir https://matrix.to/#/@-young-:matrix.org{uri}
-}
-
-github.youngtw.net {
-    redir https://github.com/Young-TW{uri}
-}
-
-mastodon.youngtw.net {
-    redir https://mastodon.social/@young_tw{uri}
-}
-
-g0v.youngtw.net {
-    redir https://g0v.social/@young{uri}
-}
-
-telegram.youngtw.net {
-    redir https://t.me/young_tw{uri}
-}
+import sites/*.caddy
