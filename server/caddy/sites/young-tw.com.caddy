@@ -1,15 +1,28 @@
-
-# young-tw.com → 永久轉址到主網域
+# young-tw.com → youn.gg
 young-tw.com {
-    redir https://youn.gg{uri} permanent
+	redir https://youn.gg{uri} permanent
 }
 
-# blog.young-tw.com
 blog.young-tw.com {
-    reverse_proxy 192.168.0.135:12347
+	reverse_proxy 192.168.0.135:12347
 }
 
-# mc.young-tw.com
 mc.young-tw.com {
-    reverse_proxy 192.168.0.135:12349
+	reverse_proxy 192.168.0.135:12349
+}
+
+quaver.young-tw.com {
+	reverse_proxy 192.168.0.135:3001
+}
+
+jellyfin.young-tw.com {
+	reverse_proxy 192.168.0.127:8096
+}
+
+quaver.young-tw.com {
+	reverse_proxy 192.168.0.135:3001
+}
+
+docker.young-tw.com {
+	reverse_proxy 192.168.0.120:5000
 }

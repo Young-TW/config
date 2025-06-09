@@ -1,25 +1,24 @@
-
-# youngtw.net
+# youngtw.net → https://youn.gg
 youngtw.net {
-    reverse_proxy 192.168.0.135:12348
+	redir https://youn.gg{uri} permanent
 }
 
 matrix.youngtw.net {
-    redir https://matrix.to/#/@-young-:matrix.org{uri}
+	redir https://matrix.to/#/@-young-:matrix.org{uri} 307
 }
 
 github.youngtw.net {
-    redir https://github.com/Young-TW{uri}
+	redir https://github.com/Young-TW{uri} 307
 }
 
 mastodon.youngtw.net {
-    redir https://mastodon.social/@young_tw{uri}
+	redir https://mastodon.social/@young_tw{uri} 307
 }
 
 g0v.youngtw.net {
-    redir https://g0v.social/@young{uri}
+	redir https://g0v.social/@young{uri} 307
 }
 
 telegram.youngtw.net {
-    redir https://t.me/young_tw{uri}
+	redir https://t.me/young_tw{uri} 307
 }

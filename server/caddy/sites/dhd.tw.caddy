@@ -1,0 +1,4 @@
+# DHD website - dhd.tw
+dhd.tw {
+	reverse_proxy 192.168.0.132:5000
+}
