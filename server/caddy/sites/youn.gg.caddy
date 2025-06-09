@@ -1,36 +1,36 @@
 # Sites
 
 youn.gg {
-    tls young20050727@gmail.com
-    reverse_proxy 192.168.0.135:12348
+	tls young20050727@gmail.com
+	reverse_proxy 192.168.0.135:12348
 }
 
 blog.youn.gg {
-    reverse_proxy 192.168.0.135:12347
+	reverse_proxy 192.168.0.135:12347
 }
 
 mc.youn.gg {
-    reverse_proxy 192.168.0.135:12349
+	reverse_proxy 192.168.0.135:12349
 }
 
 # Redir
 
 matrix.youn.gg {
-    redir https://matrix.to/#/@-young-:matrix.org{uri}
+	redir https://matrix.to/#/@-young-:matrix.org{uri}
 }
 
 github.youn.gg {
-    redir https://github.com/Young-TW{uri}
+	redir https://github.com/Young-TW{uri}
 }
 
 mastodon.youn.gg {
-    redir https://mastodon.social/@young_tw{uri}
+	redir https://mastodon.social/@young_tw{uri}
 }
 
 g0v.youn.gg {
-    redir https://g0v.social/@young{uri}
+	redir https://g0v.social/@young{uri}
 }
 
 telegram.youn.gg {
-    redir https://t.me/young_tw{uri}
+	redir https://t.me/young_tw{uri}
 }

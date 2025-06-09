@@ -19,10 +19,6 @@ jellyfin.young-tw.com {
 	reverse_proxy 192.168.0.127:8096
 }
 
-quaver.young-tw.com {
-	reverse_proxy 192.168.0.135:3001
-}
-
 docker.young-tw.com {
 	reverse_proxy 192.168.0.120:5000
 }
