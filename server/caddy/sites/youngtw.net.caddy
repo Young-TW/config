@@ -4,8 +4,6 @@ youngtw.net {
     reverse_proxy 192.168.0.135:12348
 }
 
-
-# 各種簡易轉址
 matrix.youngtw.net {
     redir https://matrix.to/#/@-young-:matrix.org{uri}
 }

@@ -1,7 +1,7 @@
 
 # young-tw.com → 永久轉址到主網域
 young-tw.com {
-    redir https://youngtw.net{uri} permanent
+    redir https://youn.gg{uri} permanent
 }
 
 # blog.young-tw.com
