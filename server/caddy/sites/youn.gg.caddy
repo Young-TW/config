@@ -13,6 +13,10 @@ mc.youn.gg {
 	reverse_proxy 192.168.0.135:12349
 }
 
+jellyfin.youn.gg {
+	reverse_proxy 192.168.0.127:8096
+}
+
 # Redir
 
 matrix.youn.gg {
