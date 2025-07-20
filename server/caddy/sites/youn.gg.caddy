@@ -17,6 +17,18 @@ jellyfin.youn.gg {
 	reverse_proxy 192.168.0.127:8096
 }
 
+git.youn.gg {
+	reverse_proxy 192.168.0.200:3000
+}
+
+docker.youn.gg {
+	reverse_proxy 192.168.0.120:5000
+}
+
+quaver.youn.gg {
+	reverse_proxy 192.168.0.135:3001
+}
+
 # Redir
 
 matrix.youn.gg {
