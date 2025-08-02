@@ -37,3 +37,24 @@ function git-pull-all
         end
     end
 end
+
+function deploy-nixos
+    # usage: deploy-nixos ~/code/nix-flake
+    set -l src (realpath $argv[1])
+    if test -z "$src"
+        echo "usage: deploy-nixos <repo-path>"
+        return 1
+    end
+    if not test -d $src
+        echo "not a directory: $src"
+        return 1
+    end
+
+    sudo cp -a /etc/nixos /etc/nixos.bak.(date +%F-%H%M)
+    sudo rsync -a --delete --exclude '.git' $src/ /etc/nixos/
+    if not test -f /etc/nixos/hardware-configuration.nix
+        echo "hardware-configuration.nix not found; generating..."
+        sudo nixos-generate-config
+    end
+    sudo nixos-rebuild switch --show-trace
+end
