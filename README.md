@@ -9,7 +9,9 @@ tags: Server
 
 ## domain
 
-my domain: young-tw.com, youngtw.net
+- [*] young-tw.com
+- [*] youngtw.net
+- [*] youn.gg
 
 ## websites and applications
 
