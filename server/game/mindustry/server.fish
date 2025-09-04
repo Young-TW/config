@@ -6,7 +6,7 @@
 source ~/.config/fish/function.fish
 
 change_dir ~/Mindustry
-if not wget https://github.com/Anuken/Mindustry/releases/download/v142/server-release.jar
+if not wget https://github.com/Anuken/Mindustry/releases/download/v146/server-release.jar
     echo "Failed to download Mindustry server"
     exit 1
 end
