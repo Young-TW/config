@@ -42,3 +42,9 @@ tags: Server
 - [ ] [yourls](https://hub.docker.com/_/yourls)
 - [ ] [gitlab-ce](https://hub.docker.com/r/gitlab/gitlab-ce)
 - [ ] [synapse](https://hub.docker.com/r/matrixdotorg/synapse/)
+
+## NixOS services
+
+- [x] [forgejo](https://forgejo.youn.gg)
+- [ ] [papermc](https://mc.youn.gg)
+- [ ] caddy
