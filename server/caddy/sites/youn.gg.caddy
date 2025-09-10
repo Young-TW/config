@@ -5,6 +5,10 @@ youn.gg {
 	reverse_proxy 192.168.0.135:12348
 }
 
+www.youn.gg {
+	redir https://youn.gg{uri} permanent
+}
+
 blog.youn.gg {
 	reverse_proxy 192.168.0.135:12347
 }
