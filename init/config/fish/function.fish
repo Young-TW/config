@@ -28,12 +28,31 @@ function install_package
 end
 
 function git-pull-all
-    for dir in ./*/
-        if test -d $dir.git
-            echo ">>> Updating repo: $dir"
-            pushd $dir > /dev/null
+    set -l depth 1
+
+    if set -l idx (contains -i -- -L $argv)
+        set -l next (math $idx + 1)
+        if test $next -le (count $argv)
+            set depth $argv[$next]
+        end
+    end
+
+    _git_pull_all_r (pwd) $depth
+end
+
+function _git_pull_all_r
+    set -l dir $argv[1]
+    set -l remaining $argv[2]
+
+    for subdir in $dir/*/
+        test -d $subdir; or continue
+        if test -d $subdir.git
+            echo ">>> Updating repo: $subdir"
+            pushd $subdir > /dev/null
             git pull
             popd > /dev/null
+        else if test $remaining -gt 1
+            _git_pull_all_r $subdir (math $remaining - 1)
         end
     end
 end
