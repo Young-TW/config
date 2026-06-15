@@ -2,35 +2,23 @@
 
 youn.gg {
 	tls young20050727@gmail.com
-	reverse_proxy 192.168.0.135:12348
-}
-
-www.youn.gg {
-	redir https://youn.gg{uri} permanent
+	reverse_proxy 192.168.0.133:12348
 }
 
 blog.youn.gg {
-	reverse_proxy 192.168.0.135:12347
+	reverse_proxy 192.168.0.133:12347
 }
 
 mc.youn.gg {
-	reverse_proxy 192.168.0.135:12349
+	reverse_proxy 192.168.0.133:12349
 }
 
 jellyfin.youn.gg {
-	reverse_proxy 192.168.0.127:8096
+	reverse_proxy 192.168.0.124:8096
 }
 
-git.youn.gg {
-	reverse_proxy 192.168.0.200:3000
-}
-
-docker.youn.gg {
-	reverse_proxy 192.168.0.120:5000
-}
-
-quaver.youn.gg {
-	reverse_proxy 192.168.0.135:3001
+work.youn.gg {
+	reverse_proxy 192.168.0.133:1313
 }
 
 # Redir
@@ -53,4 +41,21 @@ g0v.youn.gg {
 
 telegram.youn.gg {
 	redir https://t.me/young_tw{uri}
+}
+
+# vm-light (Tailscale 100.121.13.114): Forgejo / Uptime Kuma / SRS / YOURLS
+git.youn.gg {
+	reverse_proxy 100.121.13.114:3000
+}
+
+status.youn.gg {
+	reverse_proxy 100.121.13.114:3001
+}
+
+live.youn.gg {
+	reverse_proxy 100.121.13.114:8080
+}
+
+s.youn.gg {
+	reverse_proxy 100.121.13.114:8081
 }

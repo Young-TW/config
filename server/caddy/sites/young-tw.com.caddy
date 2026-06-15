@@ -4,22 +4,14 @@ young-tw.com {
 }
 
 blog.young-tw.com {
-	redir https://blog.youn.gg{uri} 307
+	reverse_proxy 192.168.0.133:12347
 }
 
 mc.young-tw.com {
-	redir https://mc.youn.gg{uri} 307
+	reverse_proxy 192.168.0.133:12349
 }
 
 quaver.young-tw.com {
-	redir https://quaver.youn.gg{uri} 307
-}
-
-jellyfin.young-tw.com {
-	redir https://jellyfin.youn.gg{uri} 307
-}
-
-docker.young-tw.com {
-	redir https://docker.youn.gg{uri} 307
+	reverse_proxy 192.168.0.133:3001
 }
 
